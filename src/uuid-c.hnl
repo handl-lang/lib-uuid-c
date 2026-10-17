@@ -3,7 +3,7 @@
 --- Draws 16 random bytes from `rand-c` and formats them as a lowercase v4
 --- UUID, setting the version and variant bits in pure Handl.
 
-from "../rand-c" import { bytes }
+from "rand-c" import { bytes }
 
 do {
   HEX = "0123456789abcdef"
