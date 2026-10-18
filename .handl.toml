@@ -1,0 +1,5 @@
+[dependencies]
+rand-c = { path = "../lib-rand-c/src" }
+
+# own package
+uuid-c = { path = "src" }
