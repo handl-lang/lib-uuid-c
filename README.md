@@ -19,3 +19,7 @@ Dependencies: see `pkg.hnl`
 ```bash
 HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
 ```
+
+## License
+
+MIT.
