@@ -6,22 +6,22 @@
 from "rand-c" import { bytes }
 
 do {
-  HEX = "0123456789abcdef"
+  HEX := "0123456789abcdef"
 
-  nibble_to_hex = (n) ~> char.at(HEX, n)
+  nibble_to_hex := (n) ~> char.at(HEX, n)
 
-  byte_to_hex = (b) ~> do {
-    hi = math.floor(b / 16)
-    lo = math.mod(b, 16)
+  byte_to_hex := (b) ~> do {
+    hi := math.floor(b / 16)
+    lo := math.mod(b, 16)
     nibble_to_hex(hi) + nibble_to_hex(lo)
   }
 
-  format_uuid = (bs) ~> do {
+  format_uuid := (bs) ~> do {
     while { i: 0, hex: "" } {
       [i, hex] ~> if i >= 16 {
         { out: hex }
       } else {
-        b = if i == 6 {
+        b := if i == 6 {
           math.mod(bs[i], 16) + 64
         } else if i == 8 {
           math.mod(bs[i], 64) + 128
@@ -33,7 +33,7 @@ do {
     }
   }
 
-  add_hyphens = (hex) ~>
+  add_hyphens := (hex) ~>
     char.slice(hex, 0, 8) + "-" +
     char.slice(hex, 8, 12) + "-" +
     char.slice(hex, 12, 16) + "-" +
