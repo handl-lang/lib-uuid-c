@@ -1,3 +1,31 @@
+# lib-uuid-c
+
+Native UUID implementation (C) for the `uuid` port — over the
+`rand-c` entropy backend. Pure `.hnl`.
+
+## Layout
+
+| path | role |
+| --- | --- |
+| `src/index.hnl` | the backend implementation |
+| `pkg.hnl` | manifest — `modules: ["uuid-c"]`, dep `rand-c` |
+| `scripts/hnl-gate.sh`, `ci.sh` | the gate / bupha entry |
+
+## Contract
+
+- Implements the `uuid` contract (`lib-uuid`) natively over C/random
+  sources via `rand-c`.
+
+## Verification
+
+```bash
+HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
+```
+
+## License
+
+MIT.
+
 <!-- myco:agent-awareness -->
 
 ## Agent awareness
