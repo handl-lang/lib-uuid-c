@@ -1,0 +1,22 @@
+--- uuid-c -- v4 UUID format smoke tests over `rand-c` entropy.
+---
+--- Bytes are random, so assertions pin the *shape* only: 36 chars,
+--- hyphens at 8/13/18/23, version nibble `4` at index 14, and a
+--- variant nibble in {8,9,a,b} at index 19.
+
+from "./index" import * as m
+
+u := m.v4()
+
+test_v4_length := assert str.length(u) == 36
+
+test_v4_hyphens := assert str.slice(u, 8, 9) == "-"
+  && str.slice(u, 13, 14) == "-"
+  && str.slice(u, 18, 19) == "-"
+  && str.slice(u, 23, 24) == "-"
+
+test_v4_version := assert str.slice(u, 14, 15) == "4"
+
+test_v4_variant := assert str.contains("89ab", str.slice(u, 19, 20))
+
+test_v4_lower_hex := assert str.slice(u, 0, 8) == str.lower(str.slice(u, 0, 8))
