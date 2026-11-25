@@ -9,7 +9,7 @@ Native UUID implementation (C) for the `uuid` port — over the
 | --- | --- |
 | `src/index.hnl` | the backend implementation |
 | `pkg.hnl` | manifest — `modules: ["uuid-c"]`, dep `rand-c` |
-| `scripts/hnl-gate.sh`, `ci.sh` | the gate / bupha entry |
+| `scripts/hnl-gate.sh`, `workflows/gate.yaml` | the gate / bupha entry |
 
 ## Contract
 
